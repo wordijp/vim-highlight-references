@@ -1,9 +1,5 @@
 let s:redraw_timer_id = 0
 
-if !hlexists('highlightReference')
-  highlight link highlightReference CursorColumn
-endif
-
 function! highlight_references#redrawLazy() abort
   if s:redraw_timer_id != 0
     call timer_stop(s:redraw_timer_id)
@@ -17,6 +13,10 @@ endfunction
 
 function! s:redraw_(_)
   let s:redraw_timer_id = 0
+
+  if !hlexists('highlightReference')
+    highlight link highlightReference CursorColumn
+  endif
 
   call highlight_references#lsp#clear_highlight()
 

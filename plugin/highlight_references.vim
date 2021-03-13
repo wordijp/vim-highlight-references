@@ -7,6 +7,6 @@ let g:highlight_references_interval = get(g:, 'highlight_references_interval', 2
 
 augroup highlight_references_enable
   autocmd!
-  autocmd CursorMoved <buffer> call highlight_references#redrawLazy()
-  autocmd CursorMovedI <buffer> call highlight_references#redrawLazy()
+  autocmd CursorMoved * call highlight_references#redrawLazy()
+  autocmd CursorMovedI * call highlight_references#redrawLazy()
 augroup END
